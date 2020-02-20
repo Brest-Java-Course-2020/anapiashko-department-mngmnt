@@ -30,8 +30,7 @@ public class DepartmentJdbcDaoImplTest {
     public void getDepartmentById() {
     }
 
-    @Test
-    public void addDepartment() {
+    @Test public void addDepartment() {
     }
 
     @Test
