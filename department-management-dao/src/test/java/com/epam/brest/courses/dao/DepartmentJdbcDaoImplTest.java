@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
+import static org.junit.Assert.*;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -28,6 +28,8 @@ public class DepartmentJdbcDaoImplTest {
 
     @Test
     public void getDepartmentById() {
+     //  Department department = departmentDao.getDepartmentById(1);
+       // assertEquals("deer", department.getDepartmentName());
     }
 
     @Test public void addDepartment() {

@@ -22,7 +22,7 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao{
 
     @Override
     public List<Department> getDepartments() {
-        LOGGER.trace("Get all departments");
+        LOGGER.trace("Get all departments {}",0);
         List<Department> departments = namedParameterJdbcTemplate
                 .query("SELECT d.DEPARTMENT_ID, d.DEPARTMENT_NAME FROM DEPARTMENT d ORDER BY d.DEPARTMENT_NAME",
                         new DepartmentRowMapper());
@@ -31,6 +31,9 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao{
 
     @Override
     public Department getDepartmentById(Integer departmentId) {
+        //Department department = (Department) namedParameterJdbcTemplate
+          //      .query("SELECT * FROM DEPARTMENT WHERE DEPARTMENT_ID="+departmentId+" LIMIT 1", new DepartmentRowMapper());
+       // return department;
         return null;
     }
 
