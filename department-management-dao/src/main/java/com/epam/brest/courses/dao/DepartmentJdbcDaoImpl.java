@@ -4,11 +4,15 @@ import com.epam.brest.courses.model.Department;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DepartmentJdbcDaoImpl implements DepartmentDao{
 
@@ -22,7 +26,7 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao{
 
     @Override
     public List<Department> getDepartments() {
-        LOGGER.trace("Get all departments {}",0);
+        LOGGER.trace("Get all departments");
         List<Department> departments = namedParameterJdbcTemplate
                 .query("SELECT d.DEPARTMENT_ID, d.DEPARTMENT_NAME FROM DEPARTMENT d ORDER BY d.DEPARTMENT_NAME",
                         new DepartmentRowMapper());
@@ -31,14 +35,22 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao{
 
     @Override
     public Department getDepartmentById(Integer departmentId) {
-        //Department department = (Department) namedParameterJdbcTemplate
-          //      .query("SELECT * FROM DEPARTMENT WHERE DEPARTMENT_ID="+departmentId+" LIMIT 1", new DepartmentRowMapper());
-       // return department;
-        return null;
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("DEPARTMENT_ID", departmentId);
+        Department department =  namedParameterJdbcTemplate
+                .queryForObject("SELECT * FROM DEPARTMENT WHERE DEPARTMENT_ID = :DEPARTMENT_ID",namedParameters,  new DepartmentRowMapper());
+        return department;
     }
 
     @Override
     public Department addDepartment(Department department) {
+
+        MapSqlParameterSource params = new MapSqlParameterSource();
+
+        params.addValue("DEPARTMENT_ID" , department.getDepartmentId())
+                .addValue("DEPARTMENT_NAME", department.getDepartmentName());
+
+       int save = namedParameterJdbcTemplate
+                .update("INSERT INTO DEPARTMENT (DEPARTMENT_ID, DEPARTMENT_NAME) VALUES (:DEPARTMENT_ID, :DEPARTMENT_NAME)", params);
         return null;
     }
 

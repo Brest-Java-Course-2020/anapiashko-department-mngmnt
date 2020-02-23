@@ -23,16 +23,21 @@ public class DepartmentJdbcDaoImplTest {
     @Test
     public void getDepartments() {
         List<Department> departments = departmentDao.getDepartments();
+        System.out.println(departments);
         assertNotNull(departments);
     }
 
     @Test
     public void getDepartmentById() {
-     //  Department department = departmentDao.getDepartmentById(1);
-       // assertEquals("deer", department.getDepartmentName());
+       Department department = departmentDao.getDepartmentById(1);
+        assertEquals("Development", department.getDepartmentName());
     }
 
     @Test public void addDepartment() {
+        Department dep = new Department();
+        dep.setDepartmentId(4);
+        dep.setDepartmentName("Name");
+        departmentDao.addDepartment(dep);
     }
 
     @Test
