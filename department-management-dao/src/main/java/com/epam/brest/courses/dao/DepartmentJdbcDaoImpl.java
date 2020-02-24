@@ -10,9 +10,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class DepartmentJdbcDaoImpl implements DepartmentDao{
 
@@ -26,7 +24,7 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao{
 
     @Override
     public List<Department> getDepartments() {
-        LOGGER.trace("Get all departments");
+        LOGGER.info("Get all departments");
         List<Department> departments = namedParameterJdbcTemplate
                 .query("SELECT d.DEPARTMENT_ID, d.DEPARTMENT_NAME FROM DEPARTMENT d ORDER BY d.DEPARTMENT_NAME",
                         new DepartmentRowMapper());
