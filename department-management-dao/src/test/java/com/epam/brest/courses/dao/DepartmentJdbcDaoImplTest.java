@@ -7,14 +7,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import static org.junit.Assert.*;
+
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = {"classpath*:test-db.xml", "classpath*:test-dao.xml"})
+@ContextConfiguration(locations = {"classpath*:test-db.xml", "classpath*:test-dao.xml", "classpath:dao.xml"})
 public class DepartmentJdbcDaoImplTest {
 
     @Autowired
@@ -35,16 +36,23 @@ public class DepartmentJdbcDaoImplTest {
 
     @Test public void addDepartment() {
         Department dep = new Department();
-        dep.setDepartmentId(4);
+        //dep.setDepartmentId(4);
         dep.setDepartmentName("Name");
         departmentDao.addDepartment(dep);
     }
 
     @Test
     public void updateDepartment() {
+        Department department = new Department();
+        department.setDepartmentId(2);
+        department.setDepartmentName("hr");
+        departmentDao.updateDepartment(department);
+        getDepartments();
     }
 
     @Test
     public void deleteDepartment() {
+        departmentDao.deleteDepartment(3);
+        getDepartments();
     }
 }

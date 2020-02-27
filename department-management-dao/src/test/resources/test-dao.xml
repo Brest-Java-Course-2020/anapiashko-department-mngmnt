@@ -12,4 +12,8 @@
         <constructor-arg ref="dataSource"/>
     </bean>
 
+<!--    <bean id="mock" class="org.mockito.Mock" factory-method="mock">-->
+<!--    <constructor-arg   value="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate"/>
+        </bean>-->
+
 </beans>
