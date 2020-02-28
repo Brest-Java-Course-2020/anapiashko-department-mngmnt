@@ -23,10 +23,17 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao{
     @Value("${department.select}")
     private String SELECT_ALL;
 
-    private static final String SELECT_BY_ID = "SELECT * FROM DEPARTMENT WHERE DEPARTMENT_ID = :DEPARTMENT_ID";
-    private static final  String INSERT = "INSERT INTO DEPARTMENT (DEPARTMENT_ID, DEPARTMENT_NAME) VALUES (:DEPARTMENT_ID, :DEPARTMENT_NAME)";
-    private static final String UPDATE = "UPDATE DEPARTMENT SET DEPARTMENT_NAME = :DEPARTMENT_NAME  WHERE DEPARTMENT_ID = :DEPARTMENT_ID";
-    private static final String DELETE = "DELETE FROM DEPARTMENT WHERE DEPARTMENT_ID = :DEPARTMENT_ID";
+    @Value("${department.selectById}")
+    private String SELECT_BY_ID;
+
+    @Value("${department.insert}")
+    private String INSERT;
+
+    @Value("${department.update}")
+    private String UPDATE;
+
+    @Value("${department.delete}")
+    private String DELETE;
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
