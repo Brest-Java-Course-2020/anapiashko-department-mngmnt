@@ -43,11 +43,7 @@ public class DepartmentJdbcDaoImplTest {
 
     @Test
     public void updateDepartment() {
-        Department department = new Department();
-        department.setDepartmentId(2);
-        department.setDepartmentName("hr");
-        departmentDao.updateDepartment(department);
-        getDepartments();
+
     }
 
     @Test
