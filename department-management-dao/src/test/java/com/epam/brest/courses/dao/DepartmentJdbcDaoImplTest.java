@@ -43,7 +43,6 @@ public class DepartmentJdbcDaoImplTest {
 
     @Test
     public void updateDepartment() {
-
     }
 
     @Test
