@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -23,22 +24,22 @@ public class DepartmentJdbcDaoImplTest {
 
     @Test
     public void getDepartments() {
-        List<Department> departments = departmentDao.getDepartments();
+        List<Department> departments = departmentDao.findAll();
         System.out.println(departments);
         assertNotNull(departments);
     }
 
     @Test
     public void getDepartmentById() {
-       Department department = departmentDao.getDepartmentById(1);
-        assertEquals("Development", department.getDepartmentName());
+       Optional<Department> department = departmentDao.findById(1);
+        assertEquals("Development", department.get().getDepartmentName());
     }
 
     @Test public void addDepartment() {
         Department dep = new Department();
         //dep.setDepartmentId(4);
         dep.setDepartmentName("Name");
-        departmentDao.addDepartment(dep);
+        departmentDao.create(dep);
     }
 
     @Test
@@ -47,7 +48,7 @@ public class DepartmentJdbcDaoImplTest {
 
     @Test
     public void deleteDepartment() {
-        departmentDao.deleteDepartment(3);
+        departmentDao.delete(3);
         getDepartments();
     }
 }

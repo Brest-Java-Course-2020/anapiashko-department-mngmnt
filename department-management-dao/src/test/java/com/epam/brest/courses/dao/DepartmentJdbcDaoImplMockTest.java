@@ -59,7 +59,7 @@ public class DepartmentJdbcDaoImplMockTest {
         when(rs.getInt(anyString())).thenReturn(id);
         when(rs.getString(anyString())).thenReturn(name);
 
-        List<Department> departments = departmentDao.getDepartments();
+        List<Department> departments = departmentDao.findAll();
         assertNotNull(departments);
 
         Department dep = departments.get(0);
