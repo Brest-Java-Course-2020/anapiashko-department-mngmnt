@@ -17,9 +17,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public class DepartmentJdbcDaoImpl implements DepartmentDao{
+public class DepartmentDaoJdbc implements DepartmentDao{
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentJdbcDaoImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentDaoJdbc.class);
 
     @Value("${department.select}")
     private String SELECT_ALL;
@@ -40,7 +40,7 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao{
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public DepartmentJdbcDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+    public DepartmentDaoJdbc(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
