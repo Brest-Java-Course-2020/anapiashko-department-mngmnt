@@ -30,6 +30,7 @@
         <commons-lang3.version>3.8</commons-lang3.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <commons-lang3.version>3.0</commons-lang3.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
     </properties>
 
     <dependencyManagement>
@@ -86,6 +87,12 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation-api.version}</version>
             </dependency>
 
             <dependency>
