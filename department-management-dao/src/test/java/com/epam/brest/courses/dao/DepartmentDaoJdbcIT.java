@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static com.epam.brest.courses.constants.DepartmentConstants.DEPARTMENT_NAME_SIZE;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -23,8 +22,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ContextConfiguration(locations = {"classpath*:test-db.xml", "classpath*:test-dao.xml", "classpath:dao.xml"})
 public class DepartmentDaoJdbcIT {
 
+    private final DepartmentDao departmentDao;
+
     @Autowired
-    private DepartmentDao departmentDao;
+    public DepartmentDaoJdbcIT(DepartmentDao departmentDao) {
+        this.departmentDao = departmentDao;
+    }
 
     @Test
     public void getDepartments() {
