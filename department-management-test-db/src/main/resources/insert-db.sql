@@ -1,6 +1,6 @@
-insert into DEPARTMENT (DEPARTMENT_ID, DEPARTMENT_NAME) values ('1', 'Development');
-insert into DEPARTMENT (DEPARTMENT_ID, DEPARTMENT_NAME) values ('2', 'HR');
-insert into DEPARTMENT (DEPARTMENT_ID, DEPARTMENT_NAME) values ('3', 'Management');
+insert into DEPARTMENT (DEPARTMENT_ID, DEPARTMENT_NAME) values (1, 'DEV');
+insert into DEPARTMENT (DEPARTMENT_ID, DEPARTMENT_NAME) values (2, 'ACCOUNTING');
+insert into DEPARTMENT (DEPARTMENT_ID, DEPARTMENT_NAME) values (3, 'MANAGEMENT');
 
 INSERT INTO employee (employee_id, first_name, last_name, email, salary, department_id) VALUES (1, 'FUSER10', 'LUSER10', 'email10@mail.com', 100, 1);
 INSERT INTO employee (employee_id, first_name, last_name, email, salary, department_id) VALUES (2, 'FUSER11', 'LUSER11', 'email11@mail.com', 200, 1);
