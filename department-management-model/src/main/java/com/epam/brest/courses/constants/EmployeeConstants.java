@@ -1,6 +1,16 @@
 package com.epam.brest.courses.constants;
 
-public class EmployeeConstants {
+/**
+ * Contains employee constants.
+ */
+public final class EmployeeConstants {
+
+    /**
+     * Private constructor.
+     */
+    private EmployeeConstants() {
+
+    }
 
     public static final String DEPARTMENT_ID = "departmentId";
     public static final String EMPLOYEE_ID = "employeeId";
@@ -9,9 +19,20 @@ public class EmployeeConstants {
     public static final String EMAIL = "email";
     public static final String SALARY = "salary";
 
-    public static final int EMPLOYEE_FIRSTNAME_SIZE = 255;
-    public static final int EMPLOYEE_LASTNAME_SIZE = 255;
-    public static final int EMPLOYEE_EMAIL_SIZE = 255;
 
+    /**
+     * Max length of first name.
+     */
+    public static final int EMPLOYEE_FIRSTNAME_SIZE = 255;
+
+    /**
+     * Max length of second name.
+     */
+    public static final int EMPLOYEE_LASTNAME_SIZE = 255;
+
+    /**
+     * Max length of email.
+     */
+    public static final int EMPLOYEE_EMAIL_SIZE = 255;
 
 }

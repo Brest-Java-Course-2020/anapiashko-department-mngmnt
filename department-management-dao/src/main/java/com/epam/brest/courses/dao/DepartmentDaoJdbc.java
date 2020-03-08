@@ -17,6 +17,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import static com.epam.brest.courses.constants.DepartmentConstants.COLUMN_DEPARTMENT_ID;
+import static com.epam.brest.courses.constants.DepartmentConstants.COLUMN_DEPARTMENT_NAME;
+
 public class DepartmentDaoJdbc implements DepartmentDao{
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentDaoJdbc.class);
@@ -54,7 +57,7 @@ public class DepartmentDaoJdbc implements DepartmentDao{
     @Override
     public Optional<Department> findById(Integer departmentId) {
         LOGGER.debug("findById(id:{})", departmentId);
-        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("DEPARTMENT_ID", departmentId);
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(COLUMN_DEPARTMENT_ID, departmentId);
         List<Department> results = namedParameterJdbcTemplate.query(SELECT_BY_ID, namedParameters, departmentRowMapper);
         return Optional.ofNullable(DataAccessUtils.uniqueResult(results));
     }
@@ -66,7 +69,7 @@ public class DepartmentDaoJdbc implements DepartmentDao{
         MapSqlParameterSource params = new MapSqlParameterSource();
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        params.addValue("DEPARTMENT_NAME", department.getDepartmentName());
+        params.addValue(COLUMN_DEPARTMENT_NAME, department.getDepartmentName());
 
        namedParameterJdbcTemplate.update(INSERT, params, keyHolder);
 
@@ -79,8 +82,8 @@ public class DepartmentDaoJdbc implements DepartmentDao{
 
         MapSqlParameterSource params = new MapSqlParameterSource();
 
-        params.addValue("DEPARTMENT_ID" , department.getDepartmentId())
-                .addValue("DEPARTMENT_NAME", department.getDepartmentName());
+        params.addValue(COLUMN_DEPARTMENT_ID , department.getDepartmentId())
+                .addValue(COLUMN_DEPARTMENT_NAME, department.getDepartmentName());
 
         return namedParameterJdbcTemplate.update(UPDATE, params);
     }
@@ -89,16 +92,16 @@ public class DepartmentDaoJdbc implements DepartmentDao{
     public int delete(Integer departmentId) {
         LOGGER.debug("delete(departmentId:{})", departmentId);
 
-        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("DEPARTMENT_ID", departmentId);
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(COLUMN_DEPARTMENT_ID, departmentId);
        return namedParameterJdbcTemplate.update(DELETE, namedParameters);
     }
 
-    private class DepartmentRowMapper implements RowMapper<Department> {
+    private static class DepartmentRowMapper implements RowMapper<Department> {
         @Override
         public Department mapRow(ResultSet resultSet, int i) throws SQLException {
             Department department = new Department();
-            department.setDepartmentId(resultSet.getInt("DEPARTMENT_ID"));
-            department.setDepartmentName(resultSet.getString("DEPARTMENT_NAME"));
+            department.setDepartmentId(resultSet.getInt(COLUMN_DEPARTMENT_ID));
+            department.setDepartmentName(resultSet.getString(COLUMN_DEPARTMENT_NAME));
             return department;
         }
     }
