@@ -6,29 +6,29 @@ public class Department {
 
     private String departmentName;
 
-    public Integer getDepartmentId() {
+    public final Integer getDepartmentId() {
         return departmentId;
     }
 
-    public Department setDepartmentId(Integer departmentId) {
+    public final Department setDepartmentId(final Integer departmentId) {
         this.departmentId = departmentId;
         return  this;
     }
 
-    public String getDepartmentName() {
+    public final String getDepartmentName() {
         return departmentName;
     }
 
-    public Department setDepartmentName(String departmentName) {
+    public final Department setDepartmentName(final String departmentName) {
         this.departmentName = departmentName;
         return this;
     }
 
     @Override
-    public String toString() {
-        return "Department{" +
-                "departmentId=" + departmentId +
-                ", departmentName='" + departmentName + '\'' +
-                '}';
+    public final String toString() {
+        return "Department{"
+                + "departmentId=" + departmentId
+                + ", departmentName='" + departmentName + '\''
+                + '}';
     }
 }

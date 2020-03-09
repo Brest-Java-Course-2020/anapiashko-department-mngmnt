@@ -33,7 +33,7 @@ public class DepartmentDto {
      *
      * @param departmentName department name
      */
-    public DepartmentDto(String departmentName) {
+    public  DepartmentDto(final String departmentName) {
         this.departmentName = departmentName;
     }
 
@@ -42,7 +42,7 @@ public class DepartmentDto {
      *
      * @return departmentId Department Id.
      */
-    public Integer getDepartmentId() {
+    public final Integer getDepartmentId() {
         return departmentId;
     }
 
@@ -51,7 +51,7 @@ public class DepartmentDto {
      *
      * @param departmentId Department Id.
      */
-    public void setDepartmentId(final Integer departmentId) {
+    public final void setDepartmentId(final Integer departmentId) {
         this.departmentId = departmentId;
     }
 
@@ -60,7 +60,7 @@ public class DepartmentDto {
      *
      * @return departmentName Department Name.
      */
-    public String getDepartmentName() {
+    public final String getDepartmentName() {
         return departmentName;
     }
 
@@ -69,7 +69,7 @@ public class DepartmentDto {
      *
      * @param departmentName Department Name.
      */
-    public void setDepartmentName(final String departmentName) {
+    public final void setDepartmentName(final String departmentName) {
         this.departmentName = departmentName;
     }
 
@@ -79,7 +79,7 @@ public class DepartmentDto {
      *
      * @return departmentId.
      */
-    public BigDecimal getAvgSalary() {
+    public final BigDecimal getAvgSalary() {
         return avgSalary;
     }
 
@@ -88,7 +88,7 @@ public class DepartmentDto {
      *
      * @param avgSalary Average salary.
      */
-    public void setAvgSalary(final BigDecimal avgSalary) {
+    public final void setAvgSalary(final BigDecimal avgSalary) {
         this.avgSalary = avgSalary;
     }
 
@@ -96,7 +96,7 @@ public class DepartmentDto {
      * {@inheritDoc}
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return "DepartmentDto{"
                 + "departentId=" + departmentId
                 + ", departmentName='" + departmentName + '\''
