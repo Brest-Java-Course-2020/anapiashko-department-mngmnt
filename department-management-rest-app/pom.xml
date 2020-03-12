@@ -11,6 +11,8 @@
 
     <artifactId>department-management-rest-app</artifactId>
 
+    <packaging>war</packaging>
+
 <dependencies>
     <dependency>
         <groupId>com.epam.brest.courses</groupId>
@@ -66,6 +68,16 @@
     <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger2</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger-ui</artifactId>
     </dependency>
 
     <!--tests-->
